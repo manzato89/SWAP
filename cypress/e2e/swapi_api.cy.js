@@ -24,7 +24,7 @@ describe('SWAPI API Tests', () => {
     });
   });
 
-  it('4-)Validar existência do filme 2', () => {
+  it('4-) Validar existência do filme 2', () => {
     cy.request(`${baseUrl}/films/2/`).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property('title', 'The Empire Strikes Back');
