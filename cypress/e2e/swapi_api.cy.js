@@ -6,7 +6,6 @@ describe('SWAPI API Tests', () => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property('results');
       expect(response.body.results).to.be.an('array');
-
     });
   });
 
@@ -16,9 +15,7 @@ describe('SWAPI API Tests', () => {
     });
   });
 
-
   it('3-) Validar existência do filme 10', () => {
-
     cy.request({ url: `${baseUrl}/films/10/`, failOnStatusCode: false }).then((response) => {
       expect(response.status).to.eq(404, 'Filme 10 não existe');
     });
@@ -55,7 +52,7 @@ describe('SWAPI API Tests', () => {
     });
   });
 
-  it('8-). Validar o peso e a altura do C-3PO e validar pelo menos um filme que ele tenha participado', () => {
+  it('8-) Validar o peso e a altura do C-3PO e validar pelo menos um filme que ele tenha participado', () => {
     cy.request(`${baseUrl}/people/2/`).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property("name").to.be.eq('C-3PO');
