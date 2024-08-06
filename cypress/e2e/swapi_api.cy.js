@@ -1,7 +1,7 @@
 describe('SWAPI API Tests', () => {
   const baseUrl = 'https://swapi.dev/api';
 
-  it('1-) Validar que a resposta para filmes é um JSON válido', () => {
+  it('1-) Validar o formato da request (json válido) para a seguinte API: "https://swapi.dev/api/films/?format=json"', () => {
     cy.request('GET', `${baseUrl}/films/?format=json`).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property('results');
@@ -9,7 +9,7 @@ describe('SWAPI API Tests', () => {
     });
   });
 
-  it('2-) Validar retorno para URLs Inválida', () => {
+  it('2-) Validar retorno para URL Inválida', () => {
     cy.request({ url: `${baseUrl}/people/?format=jsonx`, failOnStatusCode: false }).then((response) => {
       expect(response.status).to.eq(404, 'URL inválida');
     });
